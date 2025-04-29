@@ -7,5 +7,6 @@ class Program
 
         Console.WriteLine("This is the thing");
         Console.WriteLine("This is a change");
+        Console.WriteLine("This line should be gone");
     }
 }
