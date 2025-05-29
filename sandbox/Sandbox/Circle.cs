@@ -2,6 +2,17 @@ class Circle
 {
     private double _radius;
 
+    public Circle()
+    {
+        _radius = 0.0; 
+    }
+
+    public Circle(double radious)//second constructor. Only used when an argument is provided.
+    {
+        // _radius = radious;
+        SetRadius(radious);
+    }
+
     public void SetRadius(double radius)
     {
         if (radius < 0)
