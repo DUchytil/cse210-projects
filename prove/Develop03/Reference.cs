@@ -16,7 +16,7 @@ class Reference
     {
         _book = book;
         _chapter = chapter;
-        _startVerse = -startVerse;
+        _startVerse = startVerse;
         _endVerse = endVerse;
         _moreThanOneVerse = true;
     }
