@@ -55,6 +55,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordCounter", "WordCounter\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSE210TestApp3", "CSE210TestApp3\CSE210TestApp3.csproj", "{274D93FE-DD65-458F-A516-A1791E3ECAD2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Person", "Person\Person.csproj", "{AF1C3BA4-1BCC-413C-92E9-B6059D5197AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "person2", "person2\person2.csproj", "{46C00943-300B-4D2E-8326-B33684D682AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -145,6 +149,14 @@ Global
 		{274D93FE-DD65-458F-A516-A1791E3ECAD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{274D93FE-DD65-458F-A516-A1791E3ECAD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{274D93FE-DD65-458F-A516-A1791E3ECAD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF1C3BA4-1BCC-413C-92E9-B6059D5197AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF1C3BA4-1BCC-413C-92E9-B6059D5197AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF1C3BA4-1BCC-413C-92E9-B6059D5197AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF1C3BA4-1BCC-413C-92E9-B6059D5197AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46C00943-300B-4D2E-8326-B33684D682AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46C00943-300B-4D2E-8326-B33684D682AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46C00943-300B-4D2E-8326-B33684D682AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46C00943-300B-4D2E-8326-B33684D682AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
