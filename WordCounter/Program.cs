@@ -8,5 +8,7 @@
 
         int count = wordCounter.CountSingleWord("test");
         Console.WriteLine(count);
+
+        
     }
 }
