@@ -5,4 +5,9 @@ class PoliceMan : Person
     {
         _weapons = weapons;
     }
+
+    public string GetPoliceManInformation()
+    {
+        return $"Weapons: {_weapons} :: {GetPersonInformation()}"; //Can also say base.GetPersonInformation(). "base" is a keyword that references the base class. 
+    }
 }
