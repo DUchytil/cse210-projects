@@ -5,7 +5,7 @@ class Scripture
     private Word[] _words;
 
 
-    public Scripture() //Professor had scirpture-related data passed in through here (probably the way to go)
+    public Scripture(string scriptureText, string scriptureReference) //Professor had scirpture-related data passed in through here (probably the way to go)
     {
 
     }
@@ -30,12 +30,9 @@ class Scripture
     public void hideRandomWords()
     {
         Random rn = new Random();
-        int randomNumber1 = rn.Next();
+        int randomNumber1 = rn.Next();//Should be bounded
         int randomNumber2 = rn.Next();
         int randomNumber3 = rn.Next();
-
-
-
     }
 
 
