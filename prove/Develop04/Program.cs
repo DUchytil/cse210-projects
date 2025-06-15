@@ -24,6 +24,8 @@ class Program
                 case "1":
                     break;
                 case "2":
+                    ReflectionActivity reflectionActivity = new ReflectionActivity("Reflecting Activity", "This activity will help you relax providing you with meaningful prompts to get you thinking. Get ready, and clear your mind!");
+                    reflectionActivity.GetDuration();
                     break;
                 case "3":
                     break;
@@ -37,5 +39,10 @@ class Program
 
         }
 
+    }
+
+    string GetSeconds()
+    {
+        return "";
     }
 }
