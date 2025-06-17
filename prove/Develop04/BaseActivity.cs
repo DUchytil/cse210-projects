@@ -1,6 +1,6 @@
 using System.Runtime.CompilerServices;
 
-class BaseActivity
+abstract class BaseActivity
 {
     private string _name;
     private string _description;
@@ -34,29 +34,28 @@ class BaseActivity
 
     }
 
-    public void DisplaySpinner(string message, int seconds)
+    public void DisplaySpinner(int duration)
     {
-
-        //UNDER CONSTRUCTION
-        int duration = 9;
         DateTime currentTime = DateTime.Now;
         DateTime endTime = currentTime.AddSeconds(duration);
         int sleepTime = 250;
-        int count = duration;
-
 
         string animationString = @"|/-\";
 
-
-
         while (DateTime.Now < endTime) //Countdown code 
         {
-            Console.Write(animationString[0..5]); //Puts down first five characters
+            Console.Write(animationString[0..1]); //Puts down first five characters
             Thread.Sleep(sleepTime);
-            Console.Write("\b\b\b\b\b");
-            Console.Write(animationString[5..]); //put down last five characeters
+            Console.Write("\b");
+            Console.Write(animationString[1..2]); //put down last five characeters
             Thread.Sleep(sleepTime);
-            Console.Write("\b\b\b\b\b");
+            Console.Write("\b");
+            Console.Write(animationString[2..3]); //put down last five characeters
+            Thread.Sleep(sleepTime);
+            Console.Write("\b");
+            Console.Write(animationString[3..4]); //put down last five characeters
+            Thread.Sleep(sleepTime);
+            Console.Write("\b");
         }
     }
 
@@ -73,7 +72,7 @@ class BaseActivity
     public void GetDuration()
     {
         Console.WriteLine("");
-        Console.Write("How long, in seconds, would you like for your session?");
+        Console.Write("How long, in seconds, would you like for your session? ");
         bool isNumber = int.TryParse(Console.ReadLine(), out _duration);
 
 
@@ -84,7 +83,6 @@ class BaseActivity
         }
 
         Console.WriteLine(_duration);
-
     }
 
     public void GetPromptString()
@@ -92,5 +90,6 @@ class BaseActivity
 
     }
 
-
+    public abstract void RunActivity();
+    
 }
