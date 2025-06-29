@@ -54,7 +54,7 @@ class Program
         Console.Clear();
         activity.DisplayGreeting();
         activity.DisplayDescription();
-        activity.GetDuration();
-        activity.RunActivity();
+        activity.SetDuration();
+        activity.ExecuteActivity();
     }
 }

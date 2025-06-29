@@ -1,10 +1,11 @@
-using System.Runtime.CompilerServices;
-
 abstract class BaseActivity
 {
     private string _name;
     private string _description;
     private int _duration;
+    private DateTime _currentTime;
+    private DateTime _endTime;
+
 
     public BaseActivity(string name, string description)
     {
@@ -26,11 +27,19 @@ abstract class BaseActivity
 
     public void DisplayEnding()
     {
-
+        Console.WriteLine($"\nWell Done!!\n\nYou have completed another {_duration} seconds of the {_name}.");
+        DisplaySpinner(5);
     }
 
-    public void RunCountDown(string message, int seconds)
+    public void RunCountDown(int seconds)
     {
+        while (seconds > 0)
+        {
+            Console.Write(seconds);
+            Thread.Sleep(1000);
+            Console.Write("\b");
+            seconds--;
+        }
 
     }
 
@@ -41,35 +50,32 @@ abstract class BaseActivity
         int sleepTime = 250;
 
         string animationString = @"|/-\";
-
-        while (DateTime.Now < endTime) //Countdown code 
+        int index = 0;
+        while (DateTime.Now < endTime)
         {
-            Console.Write(animationString[0..1]); //Puts down first five characters
+            if (index > animationString.Length - 1)
+                index = 0;
+            Console.Write(animationString[index]);
             Thread.Sleep(sleepTime);
             Console.Write("\b");
-            Console.Write(animationString[1..2]); //put down last five characeters
-            Thread.Sleep(sleepTime);
-            Console.Write("\b");
-            Console.Write(animationString[2..3]); //put down last five characeters
-            Thread.Sleep(sleepTime);
-            Console.Write("\b");
-            Console.Write(animationString[3..4]); //put down last five characeters
-            Thread.Sleep(sleepTime);
-            Console.Write("\b");
+            index++;
         }
+        Console.Write(" ");
+        Console.Write("\b");
     }
 
-    public void StartTime()
+    public void StartTime(int duration)
     {
-
+        _currentTime = DateTime.Now;
+        _endTime = _currentTime.AddSeconds(duration);
     }
 
-    public void HasTimerExpired()
+    public bool HasTimerExpired()
     {
-
+        return DateTime.Now > _endTime;
     }
 
-    public void GetDuration()
+    public void SetDuration()
     {
         Console.WriteLine("");
         Console.Write("How long, in seconds, would you like for your session? ");
@@ -85,11 +91,41 @@ abstract class BaseActivity
         Console.WriteLine(_duration);
     }
 
+    public int GetDuration()
+    {
+        return _duration;
+    }
+
     public void GetPromptString()
     {
 
     }
 
-    public abstract void RunActivity();
-    
+    public string GetRandomUnusedStringFromFlaggedStringList(List<FlaggedString> flaggedStringList)
+    {
+        Random rand = new Random();
+        bool isAlreadyUsed = true;
+        FlaggedString unusedString = new FlaggedString("Error, no string found.");
+        while (isAlreadyUsed)
+        {
+            FlaggedString promptToDisplay = flaggedStringList[rand.Next(0, flaggedStringList.Count() - 1)];
+            unusedString = promptToDisplay;
+            if (promptToDisplay.GetUsedStatus() == false)
+            {
+                isAlreadyUsed = false;
+            }
+        }
+        return unusedString.GetString();
+    }
+
+    public void ResetStringStatusFromFlaggedStringList(List<FlaggedString> flaggedStringList)
+    {
+        foreach (FlaggedString flaggedString in flaggedStringList)
+        {
+            flaggedString.ResetStringStatus();
+        }
+    }
+    public abstract void ExecuteActivity();
+
+       
 }
