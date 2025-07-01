@@ -42,6 +42,8 @@ abstract class BaseActivity
             Console.Write("\b");
             seconds--;
         }
+        Console.Write(" ");
+        Console.Write("\b");
 
     }
 
