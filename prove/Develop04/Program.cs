@@ -26,16 +26,16 @@ class Program
             switch (_userChoice)
             {
                 case "1":
-                    // ReflectionActivity reflectionActivity = new ReflectionActivity("Reflecting Activity", "This activity will help you relax providing you with meaningful prompts to get you thinking. Get ready, and clear your mind!");
-                    // RunActivity(reflectionActivity);
+                    BreathingActivity breathingActivity = new BreathingActivity("Breathing Activity", "This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.");
+                    RunActivity(breathingActivity);
                     break;
                 case "2":
                     ReflectionActivity reflectionActivity = new ReflectionActivity("Reflecting Activity", "This activity will help you relax providing you with meaningful prompts to get you thinking. Get ready, and clear your mind!");
                     RunActivity(reflectionActivity);
                     break;
                 case "3":
-                    // ReflectionActivity reflectionActivity = new ReflectionActivity("Reflecting Activity", "This activity will help you relax providing you with meaningful prompts to get you thinking. Get ready, and clear your mind!");
-                    // RunActivity(reflectionActivity);
+                    ListeningActivity listeningActivity = new ListeningActivity("Listening Activity", "This activity will help you reflect on the good things in your life by having you list as many things as you can in a certain area.");
+                    RunActivity(listeningActivity);
                     break;
                 case "4":
                     _finished = true;
@@ -56,5 +56,6 @@ class Program
         activity.DisplayDescription();
         activity.SetDuration();
         activity.ExecuteActivity();
+        activity.DisplayEnding();
     }
 }

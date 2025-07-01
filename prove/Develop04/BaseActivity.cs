@@ -27,7 +27,9 @@ abstract class BaseActivity
 
     public void DisplayEnding()
     {
-        Console.WriteLine($"\nWell Done!!\n\nYou have completed another {_duration} seconds of the {_name}.");
+        Console.WriteLine($"\nWell Done!!");
+        DisplaySpinner(2);
+        Console.WriteLine($"\nYou have completed another {_duration} seconds of the {_name}.");
         DisplaySpinner(5);
     }
 

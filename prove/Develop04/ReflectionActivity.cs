@@ -9,19 +9,19 @@ class ReflectionActivity : BaseActivity
     };
     private List<FlaggedString> _availableReflectionQuestions = new List<FlaggedString>
     {
-        new FlaggedString("Why was this experience meaningful to you?"),
-        new FlaggedString("Have you ever done anything like this before?"),
-        new FlaggedString("How did you get started?"),
-        new FlaggedString("How did you feel when it was complete?"),
-        new FlaggedString("What made this time different than other times when you were not as successful?"),
-        new FlaggedString("What is your favorite thing about this experience?"),
-        new FlaggedString("What could you learn from this experience that applies to other situations?"),
-        new FlaggedString("What did you learn about yourself through this experience?"),
-        new FlaggedString("How can you keep this experience in mind in the future?")
+        new FlaggedString("Why was this experience meaningful to you? "),
+        new FlaggedString("Have you ever done anything like this before? "),
+        new FlaggedString("How did you get started? "),
+        new FlaggedString("How did you feel when it was complete? "),
+        new FlaggedString("What made this time different than other times when you were not as successful? "),
+        new FlaggedString("What is your favorite thing about this experience? "),
+        new FlaggedString("What could you learn from this experience that applies to other situations? "),
+        new FlaggedString("What did you learn about yourself through this experience? "),
+        new FlaggedString("How can you keep this experience in mind in the future? ")
     };
     public ReflectionActivity(string name, string description) : base(name, description)
     {
-
+        
     }
 
     public override void ExecuteActivity()
@@ -49,12 +49,11 @@ class ReflectionActivity : BaseActivity
         // Will loop until timer has expired
         while (!base.HasTimerExpired())
         {
-            Console.WriteLine($"> {base.GetRandomUnusedStringFromFlaggedStringList(_availableReflectionQuestions)}");
+            Console.Write($"> {base.GetRandomUnusedStringFromFlaggedStringList(_availableReflectionQuestions)}");
             base.DisplaySpinner(15);
+            Console.WriteLine();
         }
-
-        // Exit logic here
-        base.DisplayEnding();
+        ;
     }
 
     private void SetPromptsAndQuestions()
