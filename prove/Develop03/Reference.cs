@@ -23,7 +23,7 @@ class Reference
 
     public string getReference()
     {
-        if (_endVerse != 0)
+        if (_moreThanOneVerse)
         {
             return $"{_book} {_chapter}:{_startVerse} - {_endVerse}";
         }
@@ -33,7 +33,7 @@ class Reference
 
     public void displayReference()
     {
-        if (_endVerse != 0)
+        if (_moreThanOneVerse)
         {
             Console.WriteLine($"{_book} {_chapter}:{_startVerse} - {_endVerse}");
             return;

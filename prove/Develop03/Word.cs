@@ -12,24 +12,28 @@ class Word
 
     public string getWord()
     {
+
+        if (_isHidden)
+        {
+            string underscoredWord = "";
+            foreach (char character in _word)
+            {
+                underscoredWord += "_";
+            }
+            return underscoredWord;
+        }
+
         return _word;
     }
 
-    public bool getWordStatus()
+    public void resetWordStatus()
     {
-        return _isHidden;
+        _isHidden = false;
     }
 
-    public string getUnderscoredWord()
+    public void setStatusAsHidden()
     {
-        
-        string underscoredWord = "";
-        foreach (char character in _word)
-        {
-            underscoredWord += "_";
-        }
-
-        return underscoredWord;
+        _isHidden = true;
     }
 
 }

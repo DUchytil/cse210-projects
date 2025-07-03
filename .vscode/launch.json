@@ -250,5 +250,18 @@
             "stopAtEntry": false
         },
 
+        {
+            "name": "Person2",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build-Person2",
+            "program": "${workspaceFolder}/Person2/bin/Debug/net8.0/Foundation4.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/Person2",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "stopAtEntry": false
+        },
+
     ]
 }

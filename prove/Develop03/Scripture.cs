@@ -1,19 +1,32 @@
-using System;
 class Scripture
 {
-    private string _reference;
-    private Word[] _words;
+    // private string _reference;
+    private List<Word> _wordObjectList = new List<Word>();
+    private string _wordsAsString;
+    private string[] _stringList;
 
 
-    public Scripture(string scriptureText, string scriptureReference) //Professor had scirpture-related data passed in through here (probably the way to go)
+    public Scripture(Reference scriptureReference, string scriptureText) //Professor had scirpture-related data passed in through here (probably the way to go)
     {
+        _wordsAsString = scriptureText;
+        _stringList = _wordsAsString.Split(" ");
 
+        foreach (string word in _stringList)
+        {
+
+            Word newWord = new Word(word);
+            _wordObjectList.Add(newWord);
+        }
+        // foreach (string word in _stringList)
+        // {
+        //     Console.WriteLine(word);    
+        // }
     }
 
     public void displayScripture()
     {
         bool firstWord = true;
-        foreach (Word word in _words)
+        foreach (Word word in _wordObjectList)
         {
             if (firstWord)
             {
@@ -27,6 +40,7 @@ class Scripture
         }
     }
 
+    
     public void hideRandomWords()
     {
         Random rn = new Random();

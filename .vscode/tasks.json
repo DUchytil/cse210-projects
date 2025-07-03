@@ -250,5 +250,18 @@
             "problemMatcher": "$msCompile"
         },
 
+        {
+            "label": "build-Person2",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Person2/Person2.csproj",
+                "/property:GenerateFullPaths=true",
+                "/consoleloggerparameters:NoSummary"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+
     ]
 }
