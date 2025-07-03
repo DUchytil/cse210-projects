@@ -1,7 +1,7 @@
-using System;
-using System.Diagnostics;
-using System.Net.NetworkInformation;
-using System.Reflection.Metadata.Ecma335;
+/*
+ABOVE AND BEYOND: I went above and beyond by implementing a system to keep track of when a string or prompt has already been used. 
+This makes it so that only unique prompts will be displayed every time the program is run. No duplicates. I did this through the FlaggedString class.
+*/
 
 class Program
 {
