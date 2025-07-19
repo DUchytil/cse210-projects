@@ -8,12 +8,12 @@ class ChecklistGoal : BaseGoal
         _goalType = "ChecklistGoal";
     }
 
-    public override string packageInfoForFile()
+    public override string PackageInfoForFile()
     {
         return $"{_goalType}|{_goalName}|{_goalDescription}|{_pointValue}|{_completionBonus}|{_completionGoalForBonus}|{_timesCompleted}";
     }
 
-    public override void processCompletion()
+    public override void ProcessCompletion()
     {
         _timesCompleted++;
         if (_timesCompleted >= _completionGoalForBonus)
@@ -24,7 +24,7 @@ class ChecklistGoal : BaseGoal
         _isCompleted = false;
     }
 
-    public override void loadInfo(string name = "default name", string description = "default description", int pointValue = 0, bool isCompleted = false, int completionBonus = 0, int completionGoal = 0, int timesCompleted = 0)
+    public override void LoadInfo(string name = "default name", string description = "default description", int pointValue = 0, bool isCompleted = false, int completionBonus = 0, int completionGoal = 0, int timesCompleted = 0)
     {
         _goalName = name;
         _goalDescription = description;
@@ -34,7 +34,7 @@ class ChecklistGoal : BaseGoal
         _timesCompleted = timesCompleted;
     }
 
-    public override void setGoalInfo()
+    public override void SetGoalInfo()
     {
         Console.Write("What is the name of your goal? ");
         _goalName = Console.ReadLine();
@@ -48,12 +48,12 @@ class ChecklistGoal : BaseGoal
         _completionBonus = int.Parse(Console.ReadLine());
     }
 
-    public override string getGoalInfoToPrint()
+    public override string GetGoalInfoToPrint()
     {
         return $"{_goalName} ({_goalDescription}) -- Currently completed: {_timesCompleted}/{_completionGoalForBonus}";
     }
 
-    public override int getGoalPoints()
+    public override int GetGoalPoints()
     {
         if (_isCompleted)
         {
@@ -62,5 +62,4 @@ class ChecklistGoal : BaseGoal
         return _pointValue;
     }
 
-    //IN THE MIDDLE OF IMPLEMENTING THIS
 }

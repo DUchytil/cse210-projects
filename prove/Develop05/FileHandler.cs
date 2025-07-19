@@ -7,7 +7,7 @@ class FileHandler
         _filename = filename;
     }
 
-    public void saveStringToFile(string content)
+    public void SaveStringToFile(string content)
     {
         using (StreamWriter outputFile = new StreamWriter(_filename, true)) // 'true' appends to the file
         {
@@ -15,7 +15,7 @@ class FileHandler
         }
     }
 
-    public string[] readStringsFromFile()
+    public string[] ReadStringsFromFile()
     {
         return System.IO.File.ReadAllLines(_filename);
     }

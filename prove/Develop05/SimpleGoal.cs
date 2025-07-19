@@ -5,7 +5,7 @@ class SimpleGoal : BaseGoal
         _goalType = "SimpleGoal";
     }
 
-    public override string packageInfoForFile()
+    public override string PackageInfoForFile()
     {
         return $"{_goalType}|{_goalName}|{_goalDescription}|{_pointValue}|{_isCompleted}";
     }

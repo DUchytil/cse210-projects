@@ -5,11 +5,11 @@ class EternalGoal : BaseGoal
         _goalType = "EternalGoal";
     }
 
-    public override string packageInfoForFile()
+    public override string PackageInfoForFile()
     {
         return $"{_goalType}|{_goalName}|{_goalDescription}|{_pointValue}|{_isCompleted}";
     }
-    public override void processCompletion()
+    public override void ProcessCompletion()
     {
         _isCompleted = false; // Eternal goals are never completed, so we set it to false
     }

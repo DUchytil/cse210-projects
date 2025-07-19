@@ -31,7 +31,7 @@ class Program
         if (File.Exists(autoSaveFile))
         {
             FileHandler fileHandler = new FileHandler(autoSaveFile);
-            string[] lines = fileHandler.readStringsFromFile();
+            string[] lines = fileHandler.ReadStringsFromFile();
             foreach (string line in lines)
             {
                 string[] parts = line.Split('|');
@@ -39,17 +39,17 @@ class Program
                 {
                     case "SimpleGoal":
                         SimpleGoal simpleGoal = new SimpleGoal(true);
-                        simpleGoal.loadInfo(parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
+                        simpleGoal.LoadInfo(parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
                         goalList.Add(simpleGoal);
                         break;
                     case "EternalGoal":
                         EternalGoal eternalGoal = new EternalGoal(true);
-                        eternalGoal.loadInfo(parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
+                        eternalGoal.LoadInfo(parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
                         goalList.Add(eternalGoal);
                         break;
                     case "ChecklistGoal":
                         ChecklistGoal checklistGoal = new ChecklistGoal(true);
-                        checklistGoal.loadInfo(parts[1], parts[2], int.Parse(parts[3]), false, int.Parse(parts[4]), int.Parse(parts[5]), int.Parse(parts[6]));
+                        checklistGoal.LoadInfo(parts[1], parts[2], int.Parse(parts[3]), false, int.Parse(parts[4]), int.Parse(parts[5]), int.Parse(parts[6]));
                         goalList.Add(checklistGoal);
                         break;
                     default:
@@ -104,23 +104,23 @@ class Program
                     }
                     break;
                 case 2:
-                    displayGoalsAndInfo(goalList);
+                    DisplayGoalsAndInfo(goalList);
                     break;
                 case 3:
                     Console.Write("What is the filename for your goal file? ");
                     string filenameToWriteTo = Console.ReadLine();
                     FileHandler fileHandler1 = new FileHandler(filenameToWriteTo);
-                    fileHandler1.saveStringToFile($"{points}"); // Save points to the file
+                    fileHandler1.SaveStringToFile($"{points}"); // Save points to the file
                     foreach (BaseGoal goal in goalList)
                     {
-                        fileHandler1.saveStringToFile(goal.packageInfoForFile()); // Save each goal's info
+                        fileHandler1.SaveStringToFile(goal.PackageInfoForFile()); // Save each goal's info
                     }
                     break;
                 case 4:
                     Console.Write("What is the filename for your goal file? ");
                     string filenameToReadFrom = Console.ReadLine();
                     FileHandler fileHandler = new FileHandler(filenameToReadFrom);
-                    string[] lines = fileHandler.readStringsFromFile();
+                    string[] lines = fileHandler.ReadStringsFromFile();
                     foreach (string line in lines)
                     {
                         string[] parts = line.Split('|');
@@ -128,17 +128,17 @@ class Program
                         {
                             case "SimpleGoal":
                                 SimpleGoal simpleGoal = new SimpleGoal(true);
-                                simpleGoal.loadInfo(parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
+                                simpleGoal.LoadInfo(parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
                                 goalList.Add(simpleGoal);
                                 break;
                             case "EternalGoal":
                                 EternalGoal eternalGoal = new EternalGoal(true);
-                                eternalGoal.loadInfo(parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
+                                eternalGoal.LoadInfo(parts[1], parts[2], int.Parse(parts[3]), bool.Parse(parts[4]));
                                 goalList.Add(eternalGoal);
                                 break;
                             case "ChecklistGoal":
                                 ChecklistGoal checklistGoal = new ChecklistGoal(true);
-                                checklistGoal.loadInfo(parts[1], parts[2], int.Parse(parts[3]), false, int.Parse(parts[4]), int.Parse(parts[5]), int.Parse(parts[6]));
+                                checklistGoal.LoadInfo(parts[1], parts[2], int.Parse(parts[3]), false, int.Parse(parts[4]), int.Parse(parts[5]), int.Parse(parts[6]));
                                 goalList.Add(checklistGoal);
                                 break;
                             default:
@@ -163,22 +163,22 @@ class Program
                     break;
                 case 5:
                     // Print out all goals here
-                    listGoals(goalList, "The goals are:");
+                    ListGoals(goalList, "The goals are:");
                     Console.Write("Which goal did you accomplish? ");
                     int goalIndex = int.Parse(Console.ReadLine()) - 1;
-                    switch (goalList[goalIndex].getGoalType())
+                    switch (goalList[goalIndex].GetGoalType())
                     {
                         case "SimpleGoal":
-                            goalList[goalIndex].processCompletion();
-                            points += goalList[goalIndex].getGoalPoints();
+                            goalList[goalIndex].ProcessCompletion();
+                            points += goalList[goalIndex].GetGoalPoints();
                             break;
                         case "EternalGoal":
-                            goalList[goalIndex].processCompletion();
-                            points += goalList[goalIndex].getGoalPoints();
+                            goalList[goalIndex].ProcessCompletion();
+                            points += goalList[goalIndex].GetGoalPoints();
                             break;
                         case "ChecklistGoal":
-                            goalList[goalIndex].processCompletion();
-                            points += goalList[goalIndex].getGoalPoints();
+                            goalList[goalIndex].ProcessCompletion();
+                            points += goalList[goalIndex].GetGoalPoints();
                             break;
                         default:
                             Console.WriteLine("Invalid goal type.");
@@ -193,7 +193,7 @@ class Program
                         writer.WriteLine(points); // Save points first
                         foreach (BaseGoal goal in goalList)
                         {
-                            writer.WriteLine(goal.packageInfoForFile()); // Save each goal's info
+                            writer.WriteLine(goal.PackageInfoForFile()); // Save each goal's info
                         }
                     }
                     isFinished = true;
@@ -210,24 +210,24 @@ class Program
         }
     }
 
-    static void displayGoalsAndInfo(List<BaseGoal> goals)
+    static void DisplayGoalsAndInfo(List<BaseGoal> goals)
     {
-        Console.WriteLine("The goals are:");
+        Console.WriteLine("The Goals Are:");
         int count = 1;
         foreach (BaseGoal goal in goals)
         {
-            Console.WriteLine($"  {count}. [{goal.getCompletionIndicator()}] {goal.getGoalInfoToPrint()}");
+            Console.WriteLine($"  {count}. [{goal.GetCompletionIndicator()}] {goal.GetGoalInfoToPrint()}");
             count++;
         }
     }
 
-    static void listGoals(List<BaseGoal> goals, string listHeader)
+    static void ListGoals(List<BaseGoal> goals, string listHeader)
     {
         Console.WriteLine(listHeader);
         int count = 1;
         foreach (BaseGoal goal in goals)
         {
-            Console.WriteLine($"  {count}. {goal.getGoalName()}");
+            Console.WriteLine($"  {count}. {goal.GetGoalName()}");
             count++;
         }
     }

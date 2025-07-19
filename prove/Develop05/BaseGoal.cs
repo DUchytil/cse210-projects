@@ -11,11 +11,11 @@ abstract class BaseGoal
     {
         if (!previouslyPopulated)
         {
-            setGoalInfo();
+            SetGoalInfo();
         }
     }
 
-    public virtual void setGoalInfo()
+    public virtual void SetGoalInfo()
     {
         Console.Write("What is the name of your goal? ");
         _goalName = Console.ReadLine();
@@ -26,22 +26,22 @@ abstract class BaseGoal
         _pointValue = int.Parse(input);
     }
 
-    public virtual int getGoalPoints()
+    public virtual int GetGoalPoints()
     {
         return _pointValue;
     }  
 
-    public virtual string getGoalInfoToPrint()
+    public virtual string GetGoalInfoToPrint()
     {
         return $"{_goalName} ({_goalDescription})";
     }
 
-    public virtual void setAsCompleted()
+    public virtual void SetAsCompleted()
     {
         _isCompleted = true;
     }
 
-    public string getCompletionIndicator()
+    public string GetCompletionIndicator()
     {
         if (_isCompleted)
         {
@@ -52,24 +52,24 @@ abstract class BaseGoal
             return " ";
         }
     }
-    public string getGoalName()
+    public string GetGoalName()
     {
         return _goalName;
     }
 
-    public abstract string packageInfoForFile();
-    public virtual void loadInfo(string name = "default name", string description = "default description", int pointValue = 0, bool isCompleted = false, int completionBonus = 0, int completionGoal = 0, int timesCompleted = 0)
+    public abstract string PackageInfoForFile();
+    public virtual void LoadInfo(string name = "default name", string description = "default description", int pointValue = 0, bool isCompleted = false, int completionBonus = 0, int completionGoal = 0, int timesCompleted = 0)
     {
         _goalName = name;
         _goalDescription = description;
         _pointValue = pointValue;
         _isCompleted = isCompleted;
     }
-    public string getGoalType()
+    public string GetGoalType()
     {
         return _goalType;
     }
-    public virtual void processCompletion()
+    public virtual void ProcessCompletion()
     {
         _isCompleted = true;
     }
