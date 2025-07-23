@@ -8,9 +8,9 @@ class Word
     {
         _word = word;
         _isHidden = false;
-    } 
+    }
 
-    public string getWord()
+    public string GetWord()
     {
 
         if (_isHidden)
@@ -26,14 +26,19 @@ class Word
         return _word;
     }
 
-    public void resetWordStatus()
+    public void ResetWordStatus()
     {
         _isHidden = false;
     }
 
-    public void setStatusAsHidden()
+    public void SetStatusAsHidden()
     {
         _isHidden = true;
+    }
+
+    public bool IsWordHidden()
+    {
+        return _isHidden;
     }
 
 }

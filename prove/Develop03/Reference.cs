@@ -21,24 +21,24 @@ class Reference
         _moreThanOneVerse = true;
     }
 
-    public string getReference()
+    public string GetReference()
     {
         if (_moreThanOneVerse)
         {
-            return $"{_book} {_chapter}:{_startVerse} - {_endVerse}";
+            return $"{_book} {_chapter}:{_startVerse}-{_endVerse}";
         }
 
         return $"{_book} {_chapter}:{_startVerse}";
     }
 
-    public void displayReference()
+    public void DisplayReference()
     {
         if (_moreThanOneVerse)
         {
-            Console.WriteLine($"{_book} {_chapter}:{_startVerse} - {_endVerse}");
+            Console.Write($"{_book} {_chapter}:{_startVerse}-{_endVerse} ");
             return;
         }
 
-        Console.WriteLine($"{_book} {_chapter}:{_startVerse}");
+        Console.Write($"{_book} {_chapter}:{_startVerse} ");
     }
 }
