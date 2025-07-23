@@ -169,14 +169,29 @@ class Program
                     switch (goalList[goalIndex].GetGoalType())
                     {
                         case "SimpleGoal":
+                            if (goalList[goalIndex].IsCompleted())
+                            {
+                                Console.WriteLine("This goal has already been completed.");
+                                break;
+                            }
                             goalList[goalIndex].ProcessCompletion();
                             points += goalList[goalIndex].GetGoalPoints();
                             break;
                         case "EternalGoal":
+                            if (goalList[goalIndex].IsCompleted())
+                            {
+                                Console.WriteLine("This goal has already been completed.");
+                                break;
+                            }
                             goalList[goalIndex].ProcessCompletion();
                             points += goalList[goalIndex].GetGoalPoints();
                             break;
                         case "ChecklistGoal":
+                            if (goalList[goalIndex].IsCompleted())
+                            {
+                                Console.WriteLine("This goal has already been completed.");
+                                break;
+                            }
                             goalList[goalIndex].ProcessCompletion();
                             points += goalList[goalIndex].GetGoalPoints();
                             break;

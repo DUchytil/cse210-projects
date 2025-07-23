@@ -13,7 +13,6 @@ class Scripture
 
         foreach (string word in _stringList)
         {
-
             Word newWord = new Word(word);
             _wordObjectList.Add(newWord);
         }

@@ -8,7 +8,7 @@ class Word
     {
         _word = word;
         _isHidden = false;
-    }
+    } 
 
     public string getWord()
     {

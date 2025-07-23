@@ -29,7 +29,7 @@ abstract class BaseGoal
     public virtual int GetGoalPoints()
     {
         return _pointValue;
-    }  
+    }
 
     public virtual string GetGoalInfoToPrint()
     {
@@ -72,5 +72,10 @@ abstract class BaseGoal
     public virtual void ProcessCompletion()
     {
         _isCompleted = true;
+    }
+    
+    public bool IsCompleted()
+    {
+        return _isCompleted;
     }
 }
