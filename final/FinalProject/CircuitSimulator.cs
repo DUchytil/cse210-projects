@@ -1,7 +1,4 @@
-using System.Text;
-namespace LogicGateSimulator
-{
-    /// <summary>
+/// <summary>
     /// PRINCIPLE: ABSTRACTION
     /// This new class encapsulates all the logic related to building and running a circuit.
     /// The main Simulator class doesn't need to know the details of how gates are
@@ -113,4 +110,3 @@ namespace LogicGateSimulator
             return sb.ToString();
         }
     }
-}
